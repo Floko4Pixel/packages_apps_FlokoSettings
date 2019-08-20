@@ -59,6 +59,7 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
     public static final String TAG = "Miscellaneous";
 
+    private static final String KEY_ACTIVE_EDGE = "active_edge";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_LOCK_CLOCK_PACKAGE_NAME = "com.cyanogenmod.lockclock";
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
@@ -78,6 +79,17 @@ public class Miscellaneous extends SettingsPreferenceFragment
         // mLockClock
         if (!Utils.isPackageInstalled(mContext, KEY_LOCK_CLOCK_PACKAGE_NAME)) {
             getPreferenceScreen().removePreference(findPreference(KEY_LOCK_CLOCK));
+        }
+
+        // Active Edge
+        Preference ActiveEdge = findPreference(KEY_ACTIVE_EDGE);
+        if (!getResources().getBoolean(R.bool.has_active_edge)) {
+            getPreferenceScreen().removePreference(ActiveEdge);
+        } else {
+            if (!getContext().getPackageManager().hasSystemFeature(
+                    "android.hardware.sensor.assist")) {
+                getPreferenceScreen().removePreference(ActiveEdge);
+            }
         }
 
         mShowCpuInfo = (SwitchPreference) findPreference(SHOW_CPU_INFO_KEY);
