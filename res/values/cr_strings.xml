@@ -2423,6 +2423,7 @@
     <string name="action_qs_panel">QS panel</string>
     <string name="action_app_action">Application</string>
     <string name="action_ringer_modes">Ringer modes</string>
+    <string name="action_screenrecord">Screenrecord</string>
     <string name="active_edge_title">Active Edge</string>
     <string name="active_edge_summary">Configure Active Edge options</string>
     <string name="active_edge_short_actions_title">Short squeeze action</string>

@@ -2151,6 +2151,7 @@
         <item>@string/action_qs_panel</item>
         <item>@string/action_app_action</item>
         <item>@string/action_ringer_modes</item>
+        <item>@string/action_screenrecord</item>
     </string-array>
 
     <string-array name="active_edge_actions_values" translatable="false">
@@ -2167,5 +2168,6 @@
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
     </string-array>
 </resources>
