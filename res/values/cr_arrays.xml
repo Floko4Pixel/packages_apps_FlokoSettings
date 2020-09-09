@@ -2373,11 +2373,11 @@
         <item>@string/action_volume_panel</item>
         <item>@string/action_screen_off</item>
         <item>@string/action_screenshot</item>
+        <item>@string/action_screenrecord</item>
         <item>@string/action_notifications</item>
         <item>@string/action_qs_panel</item>
         <item>@string/action_clear_notifications</item>
         <item>@string/action_ringer_modes</item>
-        <item>@string/kill_app</item>
         <item>@string/skip_song</item>
         <item>@string/prev_song</item>
     </string-array>
