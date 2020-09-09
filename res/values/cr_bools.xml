@@ -4,4 +4,6 @@
     <bool name="showFullColorPickSummary">true</bool>
     <!-- FOD recognizing animation -->
     <bool name="showFODAnimationPicker">false</bool>
+    <!-- Whether to display active edge category -->
+    <bool name="has_active_edge">true</bool>
 </resources>

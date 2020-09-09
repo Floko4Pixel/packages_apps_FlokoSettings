@@ -18,6 +18,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Active Edge -->
+    <Preference
+        android:key="active_edge"
+        android:icon="@drawable/ic_active_edge"
+        android:title="@string/active_edge_title"
+        android:summary="@string/active_edge_summary"
+        android:fragment="com.crdroid.settings.fragments.misc.ActiveEdge"/>
+
     <!-- Ad Away
     <Preference
         android:key="adaway"

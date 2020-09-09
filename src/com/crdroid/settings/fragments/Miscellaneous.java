@@ -62,9 +62,11 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
     public static final String TAG = "Miscellaneous";
 
+    private static final String ACTIVE_EDGE = "active_edge";
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
     private static final String SMART_CHARGING = "smart_charging";
 
+    private Preference mActiveEdge;
     private SwitchPreference mShowCpuInfo;
     private Preference mSmartCharging;
 
@@ -79,6 +81,14 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
+
+        // Active Edge
+        mActiveEdge = (Preference) prefScreen.findPreference(ACTIVE_EDGE);
+        boolean mHasActiveEdge = res.getBoolean(R.bool.has_active_edge);
+        boolean mHasSystemFeature = getContext().getPackageManager().hasSystemFeature(
+                "android.hardware.sensor.assist");
+        if (!mHasActiveEdge || !mHasSystemFeature)
+            prefScreen.removePreference(mActiveEdge);
 
         mShowCpuInfo = (SwitchPreference) prefScreen.findPreference(SHOW_CPU_INFO_KEY);
         mShowCpuInfo.setChecked(Settings.Global.getInt(resolver,
