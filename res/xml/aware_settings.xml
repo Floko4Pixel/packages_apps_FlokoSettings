@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="aware_settings_page"
+    android:title="@string/aware_settings_title">
+
+    <SwitchPreference
+        android:key="aware_toggle"
+        android:title="@string/aware_settings_title"
+        settings:controller="com.google.android.settings.aware.AwarePreferenceController"
+        settings:allowDividerAbove="true" />
+
+    <PreferenceCategory
+        android:key="aware_settings_gesture"
+        android:title="@string/aware_category_gesture"
+        settings:controller="com.google.android.settings.aware.AwarePreferenceCategoryController">
+
+        <Preference
+            android:key="aware_gesture_tap"
+            android:title="@string/gesture_tap_title"
+            android:fragment="com.google.android.settings.aware.TapGestureSettings"
+            settings:controller="com.google.android.settings.aware.AwareTapPreferenceController"
+            settings:searchable="false" />
+
+        <Preference
+            android:key="aware_gesture_skip"
+            android:title="@string/gesture_skip_title"
+            android:fragment="com.google.android.settings.aware.SkipGestureSettings"
+            settings:controller="com.google.android.settings.aware.AwareSkipPreferenceController"
+            settings:searchable="false" />
+
+        <Preference
+            android:key="aware_gesture_silence"
+            android:title="@string/gesture_silence_title"
+            android:fragment="com.google.android.settings.aware.SilenceGestureSettings"
+            settings:controller="com.google.android.settings.aware.AwareSilencePreferenceController"
+            settings:searchable="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="aware_settings_display"
+        android:title="@string/aware_category_display"
+        settings:controller="com.google.android.settings.aware.AwarePreferenceCategoryController">
+
+        <com.android.settingslib.RestrictedPreference
+            android:key="aware_wake_display"
+            android:title="@string/aware_display_settings_title"
+            android:fragment="com.google.android.settings.aware.AwareDisplaySettings"
+            settings:controller="com.google.android.settings.aware.AwareDisplayPreferenceController"
+            settings:userRestriction="no_ambient_display"
+            settings:searchable="false" />
+
+        <Preference
+            android:key="wake_screen"
+            android:title="@string/ambient_display_wake_screen_title"
+            android:fragment="com.google.android.settings.aware.WakeScreenGestureSettings"
+            settings:controller="com.google.android.settings.aware.AwareWakeScreenPreferenceController"
+            settings:searchable="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

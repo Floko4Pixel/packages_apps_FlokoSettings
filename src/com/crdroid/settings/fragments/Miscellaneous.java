@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -63,10 +64,12 @@ public class Miscellaneous extends SettingsPreferenceFragment
     public static final String TAG = "Miscellaneous";
 
     private static final String ACTIVE_EDGE = "active_edge";
+    private static final String AWARE = "aware_settings";
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
     private static final String SMART_CHARGING = "smart_charging";
 
     private Preference mActiveEdge;
+    private Preference mAware;
     private SwitchPreference mShowCpuInfo;
     private Preference mSmartCharging;
 
@@ -89,6 +92,13 @@ public class Miscellaneous extends SettingsPreferenceFragment
                 "android.hardware.sensor.assist");
         if (!mHasActiveEdge || !mHasSystemFeature)
             prefScreen.removePreference(mActiveEdge);
+
+        // Motion Sense
+        mAware = (Preference) prefScreen.findPreference(AWARE);
+        boolean mHasAware = res.getBoolean(R.bool.has_aware);
+        boolean mHasSystemProperty = SystemProperties.getBoolean("ro.vendor.aware_available", false);
+        if (!mHasActiveEdge || !mHasSystemProperty)
+            prefScreen.removePreference(mAware);
 
         mShowCpuInfo = (SwitchPreference) prefScreen.findPreference(SHOW_CPU_INFO_KEY);
         mShowCpuInfo.setChecked(Settings.Global.getInt(resolver,

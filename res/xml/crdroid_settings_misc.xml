@@ -129,6 +129,13 @@
         android:summary="@string/ime_settings_summary"
         android:fragment="com.crdroid.settings.fragments.misc.ImeSettings"/>
 
+    <!-- Motion Sense -->
+        <com.google.android.settings.aware.AwareSettingsDialogPreference
+        android:key="aware_settings"
+        android:icon="@drawable/ic_aware"
+        android:title="@string/aware_settings_title"
+        android:summary="@string/aware_settings_summary" />
+
     <!-- Smart Charging -->
     <Preference
         android:key="smart_charging"
